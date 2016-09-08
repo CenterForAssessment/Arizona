@@ -24,7 +24,7 @@ Arizona_Data_LONG[CONTENT_AREA=="Mathematics",CONTENT_AREA:="MATHEMATICS"]
 Arizona_Data_LONG[AssessmentSubtestTitle=="Algebra I", CONTENT_AREA:="ALGEBRA_I"]
 Arizona_Data_LONG[AssessmentSubtestTitle=="Geometry", CONTENT_AREA:="GEOMETRY"]
 Arizona_Data_LONG[AssessmentSubtestTitle=="Algebra II", CONTENT_AREA:="ALGEBRA_II"]
-
+Arizona_Data_LONG[,SCALE_SCORE:=as.numeric(SCALE_SCORE)]
 Arizona_Data_LONG[,VALID_CASE:="VALID_CASE"]
 
 

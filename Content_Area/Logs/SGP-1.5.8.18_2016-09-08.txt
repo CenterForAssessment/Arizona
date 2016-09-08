@@ -1,0 +1,13 @@
+
+Started prepareSGP Thursday September 08 15:24:20 2016
+
+
+	prepareSGP(
+		 data = Arizona_Data_LONG )
+
+	NOTE: Knots and Boundaries do not exist for state provided.
+	They have been produced and are available using state=AZ for subsequent analyses and saved to your working directory '/Users/damian/Documents/GitHub/Arizona/master/Content_Area'.
+	NOTE: Added variable DISTRICT_ENROLLMENT_STATUS to @Data.
+	NOTE: Added variable SCHOOL_ENROLLMENT_STATUS to @Data.
+Finished prepareSGP Thursday September 08 15:24:48 2016 in 28.285 Seconds 
+
