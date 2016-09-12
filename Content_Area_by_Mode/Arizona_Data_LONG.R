@@ -54,8 +54,6 @@ Arizona_Data_LONG[,SCALE_SCORE:=as.numeric(SCALE_SCORE)]
 
 ## ENROLLMENT_STATUS
 
-Arizona_Data_LONG[,SCHOOL_ENROLLMENT_STATUS:="Enrolled School: Yes"]
-Arizona_Data_LONG[,DISTRICT_ENROLLMENT_STATUS:="Enrolled District: Yes"]
 Arizona_Data_LONG[,STATE_ENROLLMENT_STATUS:="Enrolled State: Yes"]
 
 ## VALID_CASE
@@ -74,4 +72,4 @@ Arizona_Data_LONG[,VALID_CASE:="VALID_CASE"]
 
 ### Save results
 
-save(Arizona_Data_LONG, file="Data/Arizona_Data_LONG.Rdata")
+#save(Arizona_Data_LONG, file="Data/Arizona_Data_LONG.Rdata")
