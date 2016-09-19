@@ -12,7 +12,7 @@ require(data.table)
 
 ### Load data
 
-Arizona_Data_LONG <- fread("Data/Base_Files/ArizonaData1516.txt", colClasses=rep("character", 10))
+Arizona_Data_LONG <- fread("Data/Base_Files/ArizonaData1516.txt", colClasses=rep("character", 12))
 
 
 ##########################################################
