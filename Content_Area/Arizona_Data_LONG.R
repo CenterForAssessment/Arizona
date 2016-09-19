@@ -12,7 +12,7 @@ require(data.table)
 
 ### Load data
 
-Arizona_Data_LONG <- fread("Data/Base_Files/ArizonaData1516.txt", colClasses=rep("character", 10))
+Arizona_Data_LONG <- fread("Data/Base_Files/ArizonaData1516.txt", colClasses=rep("character", 12))
 
 
 ##########################################################
@@ -54,7 +54,11 @@ Arizona_Data_LONG[,SCALE_SCORE:=as.numeric(SCALE_SCORE)]
 
 ## ENROLLMENT_STATUS
 
-Arizona_Data_LONG[,STATE_ENROLLMENT_STATUS:="Enrolled State: Yes"]
+Arizona_Data_LONG[,STATE_ENROLLMENT_STATUS:=factor(1, levels=0:1, labels=c("Enrolled State: No", "Enrolled State: Yes"))]
+Arizona_Data_LONG[,DISTRICT_ENROLLMENT_STATUS:=as.factor(DISTRICT_ENROLLMENT_STATUS)]
+setattr(Arizona_Data_LONG[['DISTRICT_ENROLLMENT_STATUS']], "levels", c("Enrolled District: No", "Enrolled District: Yes"))
+Arizona_Data_LONG[,SCHOOL_ENROLLMENT_STATUS:=as.factor(SCHOOL_ENROLLMENT_STATUS)]
+setattr(Arizona_Data_LONG[['SCHOOL_ENROLLMENT_STATUS']], "levels", c("Enrolled School: No", "Enrolled School: Yes"))
 
 
 ## VALID_CASE
@@ -64,11 +68,11 @@ Arizona_Data_LONG[,VALID_CASE:="VALID_CASE"]
 
 ### Resolve duplicates
 
-#setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID, GRADE, SCALE_SCORE)
-#setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID)
-#Arizona_Data_LONG[which(duplicated(Arizona_Data_LONG, by=key(Arizona_Data_LONG)))-1, VALID_CASE:="INVALID_CASE"]
-#Arizona_Data_LONG[is.na(SCALE_SCORE), VALID_CASE:="INVALID_CASE"]
-#setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID)
+setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID, GRADE, SCALE_SCORE)
+setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID)
+Arizona_Data_LONG[which(duplicated(Arizona_Data_LONG, by=key(Arizona_Data_LONG)))-1, VALID_CASE:="INVALID_CASE"]
+Arizona_Data_LONG[is.na(SCALE_SCORE), VALID_CASE:="INVALID_CASE"]
+setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID)
 
 
 ### Save results
