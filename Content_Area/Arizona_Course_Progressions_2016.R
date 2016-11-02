@@ -7,7 +7,7 @@
 library(SGP)
 library(data.table)
 
-load("Arizona/Content_Area/Data/Arizona_Data_LONG.Rdata")
+load("Data/Arizona_Data_LONG.Rdata")
 
 
 ###                         ###
