@@ -36,10 +36,11 @@ Arizona_SGP <- abcSGP(
 			sgp.projections.lagged.baseline=FALSE,
 			simulate.sgps=FALSE,
 			sgp.config=AZ_CONFIG,
+			sgp.test.cohort.size=5000,
 			sgp.target.scale.scores=TRUE)#,
 #			parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=2, PROJECTIONS=2)))
 
 
 ### Save results
 
-save(Arizona_SGP, file="Data/Arizona_SGP.Rdata")
+#save(Arizona_SGP, file="Data/Arizona_SGP.Rdata")

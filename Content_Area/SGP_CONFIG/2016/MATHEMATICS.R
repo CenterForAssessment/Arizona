@@ -13,18 +13,19 @@ MATHEMATICS_2016.config <- list(
 	ALGEBRA_I.2016 = list(
                 sgp.content.areas=c('GEOMETRY', 'ALGEBRA_I'),
                 sgp.panel.years=c('2015', '2016'),
-                sgp.grade.sequences=list(c('EOCT', 'EOCT'))))
+                sgp.grade.sequences=list(c('EOCT', 'EOCT'))),
 
 ### GEOMETRY
 
 	GEOMETRY.2016 = list(
                 sgp.content.areas=c('MATHEMATICS', 'MATHEMATICS', 'ALGEBRA_I', 'GEOMETRY'),
                 sgp.panel.years=c('2013', '2014', '2015', '2016'),
-                sgp.grade.sequences=list(c('5', '6', 'EOCT', 'EOCT'), c('6', '7', 'EOCT', 'EOCT'), c('7', '8', 'EOCT', 'EOCT'))),
+                sgp.grade.sequences=list(c('EOCT', 'EOCT'), c('6', 'EOCT', 'EOCT'), c('7', 'EOCT', 'EOCT'), c('8', 'EOCT', 'EOCT'), c('5', '6', 'EOCT', 'EOCT'), c('6', '7', 'EOCT', 'EOCT'), c('7', '8', 'EOCT', 'EOCT')),
+                sgp.exact.grade.progression=TRUE)
 	GEOMETRY.2016 = list(
                 sgp.content.areas=c('ALGEBRA_II', 'GEOMETRY'),
                 sgp.panel.years=c('2015', '2016'),
-                sgp.grade.sequences=list(c('EOCT', 'EOCT'))))
+                sgp.grade.sequences=list(c('EOCT', 'EOCT'))),
 
 
 ### ALGEBRA II
@@ -32,7 +33,8 @@ MATHEMATICS_2016.config <- list(
 	ALGEBRA_II.2016 = list(
                 sgp.content.areas=c('MATHEMATICS', 'MATHEMATICS', 'GEOMETRY', 'ALGEBRA_II'),
                 sgp.panel.years=c('2013', '2014', '2015', '2016'),
-                sgp.grade.sequences=list(c('6', '7', 'EOCT', 'EOCT'), c('7', '8', 'EOCT', 'EOCT'), c('8', '9', EOCT', 'EOCT'), c('9', '10', EOCT', 'EOCT'))),
+                sgp.grade.sequences=list(c('EOCT', 'EOCT'), c('7', 'EOCT', 'EOCT'), c('8', 'EOCT', 'EOCT'), c('9', 'EOCT', 'EOCT'), c('10', 'EOCT', 'EOCT'), c('6', '7', 'EOCT', 'EOCT'), c('7', '8', 'EOCT', 'EOCT'), c('8', '9', 'EOCT', 'EOCT'), c('9', '10', 'EOCT', 'EOCT')),
+                sgp.exact.grade.progression=TRUE),
 	ALGEBRA_II.2016 = list(
                 sgp.content.areas=c('ALGEBRA_I', 'ALGEBRA_II'),
                 sgp.panel.years=c('2015', '2016'),
