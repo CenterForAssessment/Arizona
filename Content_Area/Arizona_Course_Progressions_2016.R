@@ -10,9 +10,11 @@ library(data.table)
 load("Data/Arizona_Data_LONG.Rdata")
 
 
+###############################
 ###                         ###
 ###       MATHEMATICS       ###
 ###                         ###
+###############################
 
 AZ_MATH<- Arizona_Data_LONG[CONTENT_AREA %in% c("ALGEBRA_I",  "ALGEBRA_II", "GEOMETRY", "MATHEMATICS")]
 math.prog <- courseProgressionSGP(AZ_MATH, lag.direction="BACKWARD", year="2016")
@@ -40,7 +42,7 @@ table(math.prog$BACKWARD[["2016"]][["ALGEBRA_I.CT"]]$CONTENT_AREA_by_GRADE_PRIOR
 		####  Deeper dive into Algebra I Repeaters - Additional Priors / Seperate cohorts?
 		sum(math.prog$BACKWARD[["2016"]][["ALGEBRA_I.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="ALGEBRA_I.CT" & CONTENT_AREA_by_GRADE_PRIOR_YEAR.2=="MATHEMATICS.07"]$COUNT) # 2,932
 		sum(math.prog$BACKWARD[["2016"]][["ALGEBRA_I.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="ALGEBRA_I.CT" & CONTENT_AREA_by_GRADE_PRIOR_YEAR.2=="MATHEMATICS.08"]$COUNT) # 3,111
-	
+
 ##    Geometry
 
 math.prog$BACKWARD[["2016"]][["GEOMETRY.CT"]][COUNT>500]
@@ -55,15 +57,15 @@ math.prog$BACKWARD[["2016"]][["GEOMETRY.CT"]][COUNT>500]
 	###  Untenable Progressions
 	sum(math.prog$BACKWARD[["2016"]][["GEOMETRY.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="MATHEMATICS.06"]$COUNT) # 464 - geniuses
 	sum(math.prog$BACKWARD[["2016"]][["GEOMETRY.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="MATHEMATICS.05"]$COUNT) #  49 - bigger geniuses
-	
+
 		####  Deeper dive into Algebra I Leading Priors
 		sum(math.prog$BACKWARD[["2016"]][["GEOMETRY.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="ALGEBRA_I.CT" & CONTENT_AREA_by_GRADE_PRIOR_YEAR.2=="MATHEMATICS.07"]$COUNT) #  9,257
 		sum(math.prog$BACKWARD[["2016"]][["GEOMETRY.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="ALGEBRA_I.CT" & CONTENT_AREA_by_GRADE_PRIOR_YEAR.2=="MATHEMATICS.08"]$COUNT) # 38,383
-	
+
 		# - Borderline...
 		sum(math.prog$BACKWARD[["2016"]][["GEOMETRY.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="ALGEBRA_I.CT" & CONTENT_AREA_by_GRADE_PRIOR_YEAR.2=="MATHEMATICS.06"]$COUNT) #  2,146
 		sum(math.prog$BACKWARD[["2016"]][["GEOMETRY.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="ALGEBRA_I.CT" & CONTENT_AREA_by_GRADE_PRIOR_YEAR.2=="MATHEMATICS.09"]$COUNT) #  2,106
-		
+
 
 ##    Algebra II
 
@@ -85,12 +87,14 @@ math.prog$BACKWARD[["2016"]][["ALGEBRA_II.CT"]][COUNT>500] # Major progressions
 		# - Borderline...
 		sum(math.prog$BACKWARD[["2016"]][["ALGEBRA_II.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="GEOMETRY.CT" & CONTENT_AREA_by_GRADE_PRIOR_YEAR.2=="MATHEMATICS.07"]$COUNT) #  1,599
 		sum(math.prog$BACKWARD[["2016"]][["ALGEBRA_II.CT"]][CONTENT_AREA_by_GRADE_PRIOR_YEAR.1=="GEOMETRY.CT" & CONTENT_AREA_by_GRADE_PRIOR_YEAR.2=="MATHEMATICS.10"]$COUNT) #  1,405
-		
 
 
+
+###########################
 ###                     ###
 ###         ELA         ###
 ###                     ###
+###########################
 		
 AZ_ELA <- Arizona_Data_LONG[CONTENT_AREA %in% c("ELA", "READING")]
 table(AZ_ELA[YEAR=="2016", CONTENT_AREA, GRADE])
