@@ -20,8 +20,7 @@ load("Data/Arizona_Data_LONG.Rdata")
 source("SGP_CONFIG/2016/ELA.R")
 source("SGP_CONFIG/2016/MATHEMATICS.R")
 
-AZ_CONFIG <- c(ELA_2016.config, MATHEMATICS_2016.config)
-
+AZ_CONFIG <- c(ELA_2016.config, MATHEMATICS_2016.config, ALGEBRA_I.config, GEOMETRY.config, ALGEBRA_II.config)
 
 ### updateSGP
 
