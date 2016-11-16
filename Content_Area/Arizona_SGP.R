@@ -26,7 +26,7 @@ AZ_CONFIG <- c(ELA_2016.config, MATHEMATICS_2016.config, ALGEBRA_I_2016.config, 
 
 Arizona_SGP <- abcSGP(
 			Arizona_Data_LONG,
-			steps=c("prepareSGP", "analyzeSGP", "combineSGP", "summarizeSGP", "visualizeSGP"),
+			steps=c("prepareSGP", "analyzeSGP", "combineSGP", "summarizeSGP", "visualizeSGP", "outputSGP"),
 			sgp.percentiles=TRUE,
 			sgp.projections=TRUE,
 			sgp.projections.lagged=TRUE,
