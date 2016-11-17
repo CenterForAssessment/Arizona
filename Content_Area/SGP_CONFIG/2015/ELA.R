@@ -1,4 +1,4 @@
-ELA_2016.config <- list(
+ELA_2015.config <- list(
         ELA.2015 = list(
 #                sgp.content.areas=c('READING', 'READING', 'ELA', 'ELA'),
                 sgp.content.areas=c('ELA', 'ELA', 'ELA'),
