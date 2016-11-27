@@ -11,11 +11,13 @@ ALGEBRA_I_2016.config <- list(
 	ALGEBRA_I.2016 = list(
                 sgp.content.areas=c('MATHEMATICS', 'MATHEMATICS', 'MATHEMATICS', 'ALGEBRA_I'),
                 sgp.panel.years=c('2013', '2014', '2015', '2016'),
-                sgp.grade.sequences=list(c('4', '5', '6', 'EOCT'), c('5', '6', '7', 'EOCT'), c('6', '7', '8', 'EOCT'))),
+                sgp.grade.sequences=list(c('4', '5', '6', 'EOCT'), c('5', '6', '7', 'EOCT'), c('6', '7', '8', 'EOCT')),
+		sgp.norm.group.preference=c(1,1)),
 	ALGEBRA_I.2016 = list(
                 sgp.content.areas=c('GEOMETRY', 'ALGEBRA_I'),
                 sgp.panel.years=c('2015', '2016'),
-                sgp.grade.sequences=list(c('EOCT', 'EOCT')))
+                sgp.grade.sequences=list(c('EOCT', 'EOCT')),
+		sgp.norm.group.preference=1)
 )
 
 ### GEOMETRY
@@ -24,7 +26,8 @@ GEOMETRY_2016.config <- list(
 	GEOMETRY.2016 = list(
                 sgp.content.areas=c('MATHEMATICS', 'MATHEMATICS', 'MATHEMATICS', 'GEOMETRY'),
                 sgp.panel.years=c('2013', '2014', '2015', '2016'),
-                sgp.grade.sequences=list(c('5', '6', '7', 'EOCT'), c('6', '7', '8', 'EOCT'))),
+                sgp.grade.sequences=list(c('5', '6', '7', 'EOCT'), c('6', '7', '8', 'EOCT')),
+		sgp.norm.group.preference=c(1,1)),
 	GEOMETRY.2016 = list(
                 sgp.content.areas=c('MATHEMATICS', 'ALGEBRA_I', 'GEOMETRY'),
                 sgp.panel.years=c('2014', '2015', '2016'),
