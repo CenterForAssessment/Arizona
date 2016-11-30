@@ -70,4 +70,5 @@ AZ_SGP_Norm_Group_Preference$SGP_NORM_GROUP <- as.factor(AZ_SGP_Norm_Group_Prefe
 ### Save result
 
 setkey(AZ_SGP_Norm_Group_Preference, YEAR, SGP_NORM_GROUP)
+AZ_SGP_Norm_Group_Preference <- unique(AZ_SGP_Norm_Group_Preference, by=key(AZ_SGP_Norm_Group_Preference))
 save(AZ_SGP_Norm_Group_Preference, file="AZ_SGP_Norm_Group_Preference.Rdata")
