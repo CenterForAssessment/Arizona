@@ -1,0 +1,50 @@
+\usepackage{booktabs}
+\usepackage[svgnames]{xcolor}
+\usepackage{geometry}
+\hyphenation{thatshouldnot}
+
+\usepackage{makeidx}
+\makeindex
+
+\newcommand{\subtitle}[1]{
+  \gdef\@subtitle{#1}
+}
+
+\renewcommand{\maketitlepage}{%
+  \cleardoublepage%
+  {%
+  \sffamily%
+  \pagecolor{Cornsilk}
+  \newgeometry{left=2.0cm, right=2cm, top=1cm, bottom=0.5cm}
+  \vspace*{1in}%
+  \fontsize{50}{54}\selectfont\par\noindent{S\textcolor{SlateGrey}{tudent}\\\vspace{-0.05in}\noindent{G\textcolor{SlateGrey}{rowth}}\\\vspace{0.15in}\noindent{P\textcolor{SlateGrey}{ercentiles}}}%
+  \vspace{0.5in}%
+  \fontsize{24}{26}\selectfont\par\noindent\textcolor{SlateGrey}{Theory and Calculation}%
+  \vspace{0.75in}%
+  \fontsize{14}{16}\selectfont\par\noindent\textcolor{SlateGrey}{\thanklessauthor}%
+  \vspace{3.5in}%
+  \begin{center}
+  \includegraphics[width=0.7in]{images/CFA_Logo.pdf}
+  \fontsize{14}{16}\selectfont\par\noindent\textcolor{SlateGrey}{National Center for the Improvement of Educational Assessment}%
+  \end{center}
+  }
+  \thispagestyle{empty}%
+  \restoregeometry%
+  \pagecolor{White}
+  \clearpage%
+}
+
+% From "user11232" at:
+% http://tex.stackexchange.com/questions/167526/how-to-write-dedication-properly
+
+\newenvironment{dedication}
+  {%\clearpage           % we want a new page          %% I commented this
+   \thispagestyle{empty}% no header and footer
+   \vspace*{\stretch{1}}% some space at the top
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \clearpage           % finish off the page
+  }
