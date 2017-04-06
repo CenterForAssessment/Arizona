@@ -28,7 +28,7 @@ nocite: |
   @Betebenner:2009, @RSoftware, @SGP:2017, @ShangVanI:2015
 ---
 
-```{r child='Introduction.Rmd'}
+```{r child='sections/Introduction.Rmd'}
 ```
 
 
