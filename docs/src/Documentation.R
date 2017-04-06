@@ -1,11 +1,11 @@
 #######################################################################
 ###
-### Script to generate R documentation
+### Script to generate Arizona SGP Report
 ###
 #######################################################################
 
-knitr::knit("SGP.Rmd")
-rmarkdown::render("SGP.md", output_format="all")
-file.rename("SGP.html", file.path("..", "index.html"))
-file.rename("SGP.pdf", file.path("..", "SGP.pdf"))
-unlink("SGP.md")
+knitr::knit("Arizona_Report.Rmd")
+rmarkdown::render("Arizona_Report.md", output_format="all")
+file.rename("Arizona_Report.html", file.path("..", "index.html"))
+file.rename("Arizona_Report.pdf", file.path("..", "Arizona_Report.pdf"))
+unlink("Arizona_Report.md")

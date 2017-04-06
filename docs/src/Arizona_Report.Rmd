@@ -1,0 +1,76 @@
+---
+title: <span style="color:#0085A1; font-size:5rem">Arizona SGP</span>
+subtitle: "A Technical Overview of the 2015-2016 Student Growth Percentile Calculations"
+author: |
+  | <a href="https://dbetebenner.github.io/"><span style="font-size:2rem">Damian Betebenner</span></a> & <a href="https://adamvi.github.io/"><span style="font-size:2rem">Adam VanIwaarden</span></a>
+  | <span style="color:#00274c">National Center for the Improvement of Educational Assessment</span>
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+    html_document:
+        css: tufte-css-master/tufte.css
+        highlight: pygments
+        keep_md: no
+        theme: cerulean
+        toc: yes
+        toc_float: yes
+    bookdown::tufte_book2:
+        includes:
+            in_header: preamble.tex
+            before_body: before_body.tex
+        latex_engine: xelatex
+        citation_package: natbib
+        number_sections: false
+#        keep_tex: yes
+bibliography: bibliography/refs.bib
+#abstract: "This document provides an introduction to student growth percentiles (SGP)"
+keywords: "SGP, student growth percentiles, student growth projections, R"
+nocite: |
+  @Betebenner:2009, @RSoftware, @SGP:2017, @ShangVanI:2015
+---
+
+# [Introduction](#introduction)
+
+This report contains background details and results on the 2014-2015 and 2015-2016 implementation of the student growth percentiles (SGP) model for the state of Arizona.
+The National Center for the Improvement of Educational Assessment [(NCIEA)](http://www.nciea.org) contracted with the Arizona Department of Education (DOE) to implement the SGP
+methodology using data derived from the current [AzMERIT Assessment](http://www.azed.gov/assessment/azmerit/) combined with the previous [AIMS Assessment](http://www.azed.gov/assessment/).
+The goal of the engagement with the Arizona Department of Education is to create a set of open source analytics techniques and conduct a set of initial analyses that will eventually be conducted exclusively by DOE in following years.
+
+The SGP methodology is an open source norm- and criterion-referenced student growth analysis that produces student growth percentiles and student growth projections/targets for each student in the state with adequate longitudinal data.  The methodology is currently used for many purposes.  States and districts have used the results in various ways including parent/student diagnostic reporting, institutional improvement, and school and educator accountability.  Specifics about the manner in which growth is included in school and educator accountability can be found in documents related to those accountability systems.
+
+This report includes four sections:
+
+- <span class="emph">Data:</span> Includes details on the decision rules used in the raw data preparation and student record validation.
+- <span class="emph">Analytics:</span> Introduces some of the basic statistical methods and the computational process implemented in the 2016 analyses.^[More in-depth treatment of the SGP Methodology can be found [here](https://github.com/CenterForAssessment/SGP_Resources/tree/master/articles).]
+- <span class="emph">Goodness of Fit:</span> Investigates how well the statistical models used to produce SGPs fit Arizona students' data.  This includes discussion of goodness of fit plots and the student-level correlations between SGP and prior achievement.
+- <span class="emph">SGP Results:</span> Provides basic descriptive statistics from the 2015 and 2016 analyses.
+
+
+<!-- HTML_Start -->
+<!-- LaTeX_Start
+\pagebreak
+LaTeX_End -->
+
+This report was created with [Rstudio](http://rstudio.org/) and rmarkdown. <span class="marginnote">Last modified `r Sys.Date()`. Original draft August, 2012.</span>
+
+
+\cite{Betebenner:2009}
+
+Color guide:
+
+- <span class="emph">important term</span>
+- [link]()
+- <span class="pack">package</span>
+- <span class="func">function</span>
+- <span class="objclass">object or class</span>
+
+R Info: **`r sessionInfo()$R.version$version.string` `r sessionInfo()$R.version$nickname`**
+
+
+
+#<a name='conclusion'>Conclusion</a>
+
+Generalized additive models are a conceptually straightforward tool that allows one to incorporate nonlinear predictor effects into their otherwise linear models. In addition, they allow one to keep within the linear and generalized linear modeling frameworks with which one is already familiar, while providing new avenues of model exploration and possibly improved results.  As was demonstrated, it is easy enough with just a modicum of familiarity to pull them off within the R environment, and as such, it is hoped that this document provides the means to do so.
+
+
+
+# References
