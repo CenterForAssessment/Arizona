@@ -1,6 +1,6 @@
 ---
 title: <span style="color:#0085A1; font-size:5rem">Arizona SGP</span>
-subtitle: "A Technical Overview of the 2015-2016 Student Growth Percentile Calculations"
+subtitle: "Technical Report"
 author: |
   | <a href="https://dbetebenner.github.io/"><span style="font-size:2rem">Damian Betebenner</span></a> & <a href="https://adamvi.github.io/"><span style="font-size:2rem">Adam VanIwaarden</span></a>
   | <span style="color:#00274c">National Center for the Improvement of Educational Assessment</span>
