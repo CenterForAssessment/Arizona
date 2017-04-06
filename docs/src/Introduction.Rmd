@@ -28,7 +28,7 @@ nocite: |
   @Betebenner:2009, @RSoftware, @SGP:2017, @ShangVanI:2015
 ---
 
-# [Introduction](#introduction)
+# <a name='Introduction'>Introduction</a>
 
 This report contains background details and results on the 2014-2015 and 2015-2016 implementation of the student growth percentiles (SGP) model for the state of Arizona.
 The National Center for the Improvement of Educational Assessment [(NCIEA)](http://www.nciea.org) contracted with the Arizona Department of Education (DOE) to implement the SGP
@@ -45,32 +45,4 @@ This report includes four sections:
 - <span class="emph">SGP Results:</span> Provides basic descriptive statistics from the 2015 and 2016 analyses.
 
 
-<!-- HTML_Start -->
-<!-- LaTeX_Start
-\pagebreak
-LaTeX_End -->
-
 This report was created with [Rstudio](http://rstudio.org/) and rmarkdown. <span class="marginnote">Last modified `r Sys.Date()`. Original draft August, 2012.</span>
-
-
-\cite{Betebenner:2009}
-
-Color guide:
-
-- <span class="emph">important term</span>
-- [link]()
-- <span class="pack">package</span>
-- <span class="func">function</span>
-- <span class="objclass">object or class</span>
-
-R Info: **`r sessionInfo()$R.version$version.string` `r sessionInfo()$R.version$nickname`**
-
-
-
-#<a name='conclusion'>Conclusion</a>
-
-Generalized additive models are a conceptually straightforward tool that allows one to incorporate nonlinear predictor effects into their otherwise linear models. In addition, they allow one to keep within the linear and generalized linear modeling frameworks with which one is already familiar, while providing new avenues of model exploration and possibly improved results.  As was demonstrated, it is easy enough with just a modicum of familiarity to pull them off within the R environment, and as such, it is hoped that this document provides the means to do so.
-
-
-
-# References

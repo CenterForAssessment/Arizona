@@ -1,0 +1,42 @@
+---
+title: <span style="color:#0085A1; font-size:5rem">Arizona SGP</span>
+subtitle: "A Technical Overview of the 2015-2016 Student Growth Percentile Calculations"
+author: |
+  | <a href="https://dbetebenner.github.io/"><span style="font-size:2rem">Damian Betebenner</span></a> & <a href="https://adamvi.github.io/"><span style="font-size:2rem">Adam VanIwaarden</span></a>
+  | <span style="color:#00274c">National Center for the Improvement of Educational Assessment</span>
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+    html_document:
+        css: tufte-css-master/tufte.css
+        highlight: pygments
+        keep_md: no
+        theme: cerulean
+        toc: yes
+        toc_float: yes
+    bookdown::tufte_book2:
+        includes:
+            in_header: preamble.tex
+            before_body: before_body.tex
+        latex_engine: xelatex
+        citation_package: natbib
+        number_sections: false
+#        keep_tex: yes
+bibliography: bibliography/refs.bib
+#abstract: "This document provides an introduction to student growth percentiles (SGP)"
+keywords: "SGP, student growth percentiles, student growth projections, R"
+nocite: |
+  @Betebenner:2009, @RSoftware, @SGP:2017, @ShangVanI:2015
+---
+
+```{r child='Introduction.Rmd'}
+```
+
+
+
+#<a name='conclusion'>Conclusion</a>
+
+Generalized additive models are a conceptually straightforward tool that allows one to incorporate nonlinear predictor effects into their otherwise linear models. In addition, they allow one to keep within the linear and generalized linear modeling frameworks with which one is already familiar, while providing new avenues of model exploration and possibly improved results.  As was demonstrated, it is easy enough with just a modicum of familiarity to pull them off within the R environment, and as such, it is hoped that this document provides the means to do so.
+
+
+
+# References
