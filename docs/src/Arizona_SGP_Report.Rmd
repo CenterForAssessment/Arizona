@@ -7,7 +7,7 @@ author: |
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output:
     html_document:
-        css: tufte-css-master/tufte.css
+        css: css/tufte.css
         highlight: pygments
         keep_md: no
         theme: cerulean
@@ -16,7 +16,7 @@ output:
     bookdown::tufte_book2:
         includes:
             in_header: preamble.tex
-            before_body: before_body.tex
+#            before_body: before_body.tex
         latex_engine: xelatex
         citation_package: natbib
         number_sections: false
