@@ -15,8 +15,8 @@ output:
         toc_float: yes
     bookdown::tufte_book2:
         includes:
-            in_header: preamble.tex
-#            before_body: before_body.tex
+            in_header: tex/preamble.tex
+#            before_body: tex/before_body.tex
         latex_engine: xelatex
         citation_package: natbib
         number_sections: false

@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2017-04-06" />
+<meta name="date" content="2017-04-07" />
 
 <title>Arizona SGP</title>
 
@@ -204,7 +204,7 @@ div.tocify {
 <h3 class="subtitle"><em>Technical Report</em></h3>
 <h4 class="author"><em><div style="white-space: pre-line;"><a href="https://dbetebenner.github.io/"><span style="font-size:2rem">Damian Betebenner</span></a> &amp; <a href="https://adamvi.github.io/"><span style="font-size:2rem">Adam VanIwaarden</span></a>
 <span style="color:#00274c">National Center for the Improvement of Educational Assessment</span></div></em></h4>
-<h4 class="date"><em>April 06, 2017</em></h4>
+<h4 class="date"><em>April 07, 2017</em></h4>
 
 </div>
 
@@ -220,11 +220,37 @@ div.tocify {
 <li><span class="emph">Goodness of Fit:</span> Investigates how well the statistical models used to produce SGPs fit Arizona students’ data. This includes discussion of goodness of fit plots and the student-level correlations between SGP and prior achievement.</li>
 <li><span class="emph">SGP Results:</span> Provides basic descriptive statistics from the 2015 and 2016 analyses.</li>
 </ul>
-<p>This report was created with <a href="http://rstudio.org/">Rstudio</a> and rmarkdown. <span class="marginnote">Last modified 2017-04-06. Original draft August, 2012.</span></p>
+<p>This report was created with <a href="http://rstudio.org/">Rstudio</a> and rmarkdown. <span class="marginnote">Last modified 2017-04-07. Original draft August, 2012.</span></p>
 </div>
-<div id="conclusion" class="section level1">
-<h1><a name="conclusion">Conclusion</a></h1>
-<p>Generalized additive models are a conceptually straightforward tool that allows one to incorporate nonlinear predictor effects into their otherwise linear models. In addition, they allow one to keep within the linear and generalized linear modeling frameworks with which one is already familiar, while providing new avenues of model exploration and possibly improved results. As was demonstrated, it is easy enough with just a modicum of familiarity to pull them off within the R environment, and as such, it is hoped that this document provides the means to do so.</p>
+<div id="data" class="section level1">
+<h1><a name="Data">Data</a></h1>
+<p>Data for the Arizona AzMERIT and AIMS assessments used in the SGP analyses were supplied by ADE to the NCIEA for analysis in the fall of 2016. In total, 4 years of data were provided by ADE: 2015-2016 (AzMERIT), 2014-2015 (AzMERIT), 2013-2014 (AIMS), and 2012-2013 (AIMS). Multiple years of data were provided so that additional priors scores (beyond the minimum one required) could be used in the calculations. Subsequent years’ analyses will augment this multi-year data set allowing ADE to maintain a comprehensive longitudinal data set for their state assessment system.</p>
+<p>Student Growth Percentiles have been produced for students that have a current score and at least one prior score in either the same subject or a related content area. For the 2016 academic year SGPs were produced for grade-level English Language Arts (ELA), Mathematics, Science and Social Studies, as well as for EOC test subjects including 9<sup>th</sup> Grade Literature, American Literature, Coordinate Algebra, Analytic Geometry, Algebra I, Geometry, Physical Science, Biology, U.S. History and Economics.</p>
+<div id="longitudinal-data" class="section level2">
+<h2>Longitudinal Data</h2>
+<p>Growth analyses on assessment data require data that are linked to individual students over time. Student growth percentile analyses require, at a minimum two, and preferably three years of assessment data for analysis of student progress. To this end it is necessary that a unique student identifier be available so that student data records across years can be merged with one another and subsequently examined. Because some records in the assessment data set contain students with more than one test score in a content area in a given year, a process to create unique student records in each content area by year combination was required in order to carry out subsequent growth analyses. Furthermore, student records may be invalidated for other reasons. The following business rules were used to either invalidate particular student records or select the appropriate record for use in the analyses.</p>
+<div id="general-business-rules" class="section level3">
+<h3>General business rules</h3>
+<ol style="list-style-type: decimal">
+<li>Student records are invalidated if the student identifier is not exactly 10 digits long.</li>
+<li>Student records with missing (“NA”) scores or scale scores outside of the possible range (usually 0) are invalidated.</li>
+<li>Student records with any administrative invalidation flag (for example, identifying test irregularities, students that did not attempt the test, or other issues) are invalidated.</li>
+</ol>
+<p>Beginning in 2014 Georgia DOE has performed the majority of the selection and invalidation of student records, incorporating these and other business rules into the <code>SQL</code> code used to pull student records from their data warehouse.</p>
+<!-- HTML_Start -->
+<!-- LaTeX_Start
+\pagebreak
+LaTeX_End -->
+</div>
+<div id="eog-specific-business-rules" class="section level3">
+<h3>EOG specific business rules</h3>
+<ol style="list-style-type: decimal">
+<li>If a student has multiple records (duplicate from the same subject, grade and administration period), their highest score was selected.</li>
+<li>If a student took more than one assessment in the same subject and school year but was identified as being in two different grades, the record with the highest grade level was selected.</li>
+</ol>
+<p>Table shows the number of valid EOG student records available for analysis after applying the general and EOG specific business rules.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+</div>
+</div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
@@ -247,6 +273,7 @@ div.tocify {
 <hr />
 <ol>
 <li id="fn1"><p>More in-depth treatment of the SGP Methodology can be found <a href="https://github.com/CenterForAssessment/SGP_Resources/tree/master/articles">here</a>.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>This number does not represent the number of SGPs produced, however, because students are required to have at least one prior score available as well.<a href="#fnref2">↩</a></p></li>
 </ol>
 </div>
 

@@ -15,8 +15,8 @@ output:
         toc_float: yes
     bookdown::tufte_book2:
         includes:
-            in_header: preamble.tex
-#            before_body: before_body.tex
+            in_header: tex/preamble.tex
+#            before_body: tex/before_body.tex
         latex_engine: xelatex
         citation_package: natbib
         number_sections: false
@@ -60,48 +60,4 @@ LaTeX_End -->
 1.  If a student has multiple records (duplicate from the same subject, grade and administration period), their highest score was selected.
 2.  If a student took more than one assessment in the same subject and school year but was identified as being in two different grades, the record with the highest grade level was selected.
 
-Table `r tblNumNext()` shows the number of valid EOG student records available for analysis after applying the general and EOG specific business rules.^[This number does not represent the number of SGPs produced, however, because students are required to have at least one prior score available as well.]
-
-```{r, cache=TRUE, echo=FALSE, include=FALSE}
-	n_tbl_EOG <- table(Georgia_SGP@Data[YEAR=='2016' & CONTENT_AREA %in% GL_subjects & VALID_CASE=='VALID_CASE']$CONTENT_AREA, Georgia_SGP@Data[YEAR=='2016' & CONTENT_AREA %in% GL_subjects & VALID_CASE=='VALID_CASE']$GRADE)
-```
-```{r, results='asis', echo=FALSE, N_tableEOG}
-	n_tbl_EOG_B <- n_tbl_EOG[match(GL_subjects, row.names(n_tbl_EOG)) ,]
-	n_tbl_EOG_B <- cbind('Content Area'=sapply(GL_subjects, capwords, special.words=c("ELA", "US")), n_tbl_EOG_B)
-	n_tbl_EOG_B <- prettyNum(n_tbl_EOG_B, preserve.width = "individual",big.mark=',')
-	n_tbl_EOG_B[which(n_tbl_EOG_B==0)] <- ''
-	row.names(n_tbl_EOG_B) <- NULL
-
-  cat(dualTable(as.matrix(n_tbl_EOG_B),
-  	align=paste(rep('r', dim(n_tbl_EOG_B)[2]), collapse=''),
-		n.cgroup=c(1, dim(n_tbl_EOG_B)[2]-1), cgroup=c("", "Grades"),
-		caption='Number of Valid EOG Student Records by Grade and Subject for 2016'))
-```
-
-<!-- HTML_Start -->
-<!-- LaTeX_Start
-\pagebreak
-LaTeX_End -->
-
-
-### EOC specific business rules
-
-1.  If a student has multiple records (duplicate from the same subject and administration period), their highest score was selected.
-2.  For students who participate in two main administrations in 2016 (i.e., students who failed and retook an EOC course in the same year), the first attempt is used as a prior to produce an SGP for the final attempt.  In subsequent years, their final attempt may be used as a prior for other EOC analyses.
-3.  Students who have tested out of EOC courses are invalidated.^[Beginning in 2013-2014, students had the opportunity to test out of an EOC course by taking the test early and scoring at highest performance level ("Exceeds Expectations" for EOCT or "Distinguished Learner" for Milestones EOC). SGPs are not calculated for any current year test out attempt. Successful attempts, however, are used as prior scores in subsequent years' analyses.]
-
-Table `r tblNumNext()` shows the total number of valid EOC student records available for analysis after applying the general and EOC specific business rules.
-
-```{r, cache=TRUE, echo=FALSE, include=FALSE}
-	n_tbl_EOC <- table(Georgia_SGP@Data[YEAR=='2016' & CONTENT_AREA %in% EOC_subjects & VALID_CASE=='VALID_CASE']$CONTENT_AREA, Georgia_SGP@Data[YEAR=='2016' & CONTENT_AREA %in% EOC_subjects & VALID_CASE=='VALID_CASE']$GRADE)
-```
-```{r, results='asis', echo=FALSE, N_tableEOC}
-	n_tbl_EOC_B <- n_tbl_EOC[match(EOC_subjects, row.names(n_tbl_EOC)) ,]
-	n_tbl_EOC_B <- cbind('Content Area'=sapply(EOC_subjects, capwords, special.words=c("ELA", "II", "US")), 'Valid Records' = n_tbl_EOC_B)
-	n_tbl_EOC_B <- prettyNum(n_tbl_EOC_B, preserve.width = "individual",big.mark=',')
-	row.names(n_tbl_EOC_B) <- NULL
-
-  cat(dualTable(as.matrix(n_tbl_EOC_B), align=paste(rep('r', dim(n_tbl_EOC_B)[2]), collapse=''),
-		caption='Total Number of Valid EOC Student Records by Subject for 2016'))
-
-```
+Table shows the number of valid EOG student records available for analysis after applying the general and EOG specific business rules.^[This number does not represent the number of SGPs produced, however, because students are required to have at least one prior score available as well.]
