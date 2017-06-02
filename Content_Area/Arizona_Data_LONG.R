@@ -87,10 +87,10 @@ Arizona_Data_LONG[,VALID_CASE:="VALID_CASE"]
 ### Resolve duplicates
 
 setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID, GRADE, SCALE_SCORE)
-setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID)
+setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID, GRADE)
 Arizona_Data_LONG[which(duplicated(Arizona_Data_LONG, by=key(Arizona_Data_LONG)))-1, VALID_CASE:="INVALID_CASE"]
 Arizona_Data_LONG[is.na(SCALE_SCORE), VALID_CASE:="INVALID_CASE"]
-setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID)
+setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID, GRADE)
 
 
 ### Save results
