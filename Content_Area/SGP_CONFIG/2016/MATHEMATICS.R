@@ -22,9 +22,9 @@ ALGEBRA_I_2016.config <- list(
                                         c('6', '7', '8', 'EOCT')),
 		sgp.norm.group.preference=c(1,1)),
 	ALGEBRA_I.2016 = list(
-                sgp.content.areas=c('GEOMETRY', 'ALGEBRA_I'),
-                sgp.panel.years=c('2015', '2016'),
-                sgp.grade.sequences=list(c('EOCT', 'EOCT')),
+                sgp.content.areas=c('MATHEMATICS', 'MATHEMATICS', 'GEOMETRY', 'ALGEBRA_I'),
+                sgp.panel.years=c('2013', '2014', '2015', '2016'),
+                sgp.grade.sequences=list(c('6', '7', 'EOCT', 'EOCT'), c('7', '8', 'EOCT', 'EOCT')),
                 sgp.projection.grade.sequences="NO_PROJECTIONS",
 		sgp.norm.group.preference=1)
 )
