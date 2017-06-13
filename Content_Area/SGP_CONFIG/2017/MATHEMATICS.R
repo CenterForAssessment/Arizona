@@ -21,8 +21,8 @@ ALGEBRA_I_2017.config <- list(
  	ALGEBRA_I.2017 = list(
                  sgp.content.areas=c('MATHEMATICS', 'MATHEMATICS', 'ALGEBRA_I'),
 #                 sgp.projection.content.areas=c('MATHEMATICS', 'MATHEMATICS'),
-                 sgp.panel.years=c('2016', '2017'),
-#                 sgp.projection.panel.years=c('2015', '2016', '2017'),
+                 sgp.panel.years=c('2015', '2016', '2017'),
+#                 sgp.projection.panel.years=c('2016', '2017'),
                  sgp.grade.sequences=list(c('7', '8', 'EOCT')),
 #                 sgp.projection.grade.sequences=list(c('7', '8')),
                  sgp.exact.grade.progression=TRUE,
