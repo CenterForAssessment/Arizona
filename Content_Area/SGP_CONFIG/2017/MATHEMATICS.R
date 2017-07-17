@@ -84,35 +84,35 @@ GEOMETRY_2017.config <- list(
                  sgp.grade.sequences=list(c('7', '8', 'EOCT')),
                  sgp.projection.grade.sequences=list(c("NO_PROJECTIONS")),
                  sgp.exact.grade.progression=TRUE,
-                 sgp.norm.group.preference=2),
+                 sgp.norm.group.preference=3),
     GEOMETRY.2017 = list(
                  sgp.content.areas=c('MATHEMATICS', 'GEOMETRY'),
                  sgp.panel.years=c('2016', '2017'),
                  sgp.grade.sequences=list(c('8', 'EOCT')),
                  sgp.projection.grade.sequences=list(c("NO_PROJECTIONS")),
                  sgp.exact.grade.progression=TRUE,
-                 sgp.norm.group.preference=3),
+                 sgp.norm.group.preference=4),
  	GEOMETRY.2017 = list(
                  sgp.content.areas=c('MATHEMATICS', 'ALGEBRA_II', 'GEOMETRY'),
                  sgp.panel.years=c('2015','2016', '2017'),
                  sgp.grade.sequences=list(c('8', 'EOCT', 'EOCT')),
                  sgp.projection.grade.sequences=list(c("NO_PROJECTIONS")),
                  sgp.exact.grade.progression=TRUE,
- 		         sgp.norm.group.preference=3),
+ 		         sgp.norm.group.preference=4),
     GEOMETRY.2017 = list(
                  sgp.content.areas=c('ALGEBRA_I', 'ALGEBRA_II', 'GEOMETRY'),
                  sgp.panel.years=c('2015','2016', '2017'),
                  sgp.grade.sequences=list(c('EOCT', 'EOCT', 'EOCT')),
                  sgp.projection.grade.sequences=list(c("NO_PROJECTIONS")),
                  sgp.exact.grade.progression=TRUE,
- 		         sgp.norm.group.preference=2),
+ 		         sgp.norm.group.preference=3),
  	GEOMETRY.2017 = list(
                  sgp.content.areas=c('ALGEBRA_II', 'GEOMETRY'),
                  sgp.panel.years=c('2016', '2017'),
                  sgp.grade.sequences=list(c('EOCT', 'EOCT')),
                  sgp.projection.grade.sequences=list(c("NO_PROJECTIONS")),
                  sgp.exact.grade.progression=TRUE,
- 		         sgp.norm.group.preference=4)
+ 		         sgp.norm.group.preference=5)
 )
 
 
