@@ -72,7 +72,7 @@ GEOMETRY_2017.config <- list(
                  sgp.grade.sequences=list(c('7', 'EOCT', 'EOCT')),
                  sgp.exact.grade.progression=TRUE,
                  sgp.projection.sequence="ALGEBRA_I_FROM_7",
-                 sgp.norm.group.preference=3),
+                 sgp.norm.group.preference=1),
  	GEOMETRY.2017 = list(
                  sgp.content.areas=c('ALGEBRA_I', 'GEOMETRY'),
                  sgp.panel.years=c('2016', '2017'),
