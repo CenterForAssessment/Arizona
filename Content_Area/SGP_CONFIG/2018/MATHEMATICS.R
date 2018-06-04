@@ -19,7 +19,7 @@ MATHEMATICS_2018.config <- list(
 ### ALGEBRA I
 
 
-ALGEBRA_I_2017.config <- list(
+ALGEBRA_I_2018.config <- list(
  	ALGEBRA_I.2018 = list(
                  sgp.content.areas=c('MATHEMATICS', 'MATHEMATICS', 'ALGEBRA_I'),
                  sgp.panel.years=c('2016', '2017', '2018'),

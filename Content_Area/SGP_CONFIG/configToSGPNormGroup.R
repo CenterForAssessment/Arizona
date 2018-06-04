@@ -48,12 +48,14 @@ configToSGPNormGroup <- function(sgp.config) {
 
 source("2016/MATHEMATICS.R")
 source("2017/MATHEMATICS.R")
+source("2018/MATHEMATICS.R")
 
 
 ###  Compile annual configuration lists
 
 AZ_EOCT_2016.config <- c(ALGEBRA_I_2016.config, GEOMETRY_2016.config, ALGEBRA_II_2016.config)
 AZ_EOCT_2017.config <- c(ALGEBRA_I_2017.config, GEOMETRY_2017.config, ALGEBRA_II_2017.config)
+AZ_EOCT_2018.config <- c(ALGEBRA_I_2018.config, GEOMETRY_2018.config, ALGEBRA_II_2018.config)
 
 
 ### Create configToNormGroup data.frame
@@ -66,9 +68,14 @@ tmp.configToNormGroup <- lapply(AZ_EOCT_2017.config, configToSGPNormGroup)
 AZ_SGP_Norm_Group_Preference_2017 <- data.table(
 					YEAR="2017", rbindlist(tmp.configToNormGroup))
 
+tmp.configToNormGroup <- lapply(AZ_EOCT_2018.config, configToSGPNormGroup)
+AZ_SGP_Norm_Group_Preference_2018 <- data.table(
+					YEAR="2018", rbindlist(tmp.configToNormGroup))
+
 AZ_SGP_Norm_Group_Preference <- rbind(
 			AZ_SGP_Norm_Group_Preference_2016,
-			AZ_SGP_Norm_Group_Preference_2017
+			AZ_SGP_Norm_Group_Preference_2017,
+			AZ_SGP_Norm_Group_Preference_2018
 			)
 
 AZ_SGP_Norm_Group_Preference$SGP_NORM_GROUP <- as.factor(AZ_SGP_Norm_Group_Preference$SGP_NORM_GROUP)
