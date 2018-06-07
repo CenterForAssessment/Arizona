@@ -39,8 +39,8 @@ Arizona_SGP <- updateSGP(
  			sgp.projections.lagged.baseline=FALSE,
  			simulate.sgps=FALSE,
  			sgp.config=AZ_CONFIG,
- 			sgp.target.scale.scores=TRUE)#,
-#			parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=8, PROJECTIONS=8, LAGGED_PROJECTIONS=8, SGP_SCALE_SCORE_TARGETS=8, SUMMARY=8, GA_PLOT=8)))
+ 			sgp.target.scale.scores=TRUE,
+			parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=8, PROJECTIONS=8, LAGGED_PROJECTIONS=8, SGP_SCALE_SCORE_TARGETS=8, SUMMARY=8, GA_PLOT=8)))
 
 
 ### Save results

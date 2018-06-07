@@ -12,20 +12,17 @@ require(data.table)
 
 ### Load data
 
-Arizona_Data_LONG_2018 <- fread("Data/Base_Files/sgpdata18.txt", colClasses=rep("character", 21))
+load("Data/Base_Files/Arizona_Data_LONG_060618.Rdata")
+Arizona_Data_LONG_2018 <- Arizona_Data_LONG[YEAR=="2018"]
 
 
 ##########################################################
 ### Clean up 2018 data
 ##########################################################
 
-## CONTENT_AREA
+## ETHNICITY
 
-Arizona_Data_LONG_2018[CONTENT_AREA=="English Language Arts",CONTENT_AREA:="ELA"]
-Arizona_Data_LONG_2018[CONTENT_AREA=="Mathematics",CONTENT_AREA:="MATHEMATICS"]
-Arizona_Data_LONG_2018[AssessmentSubtestTitle=="Algebra I", CONTENT_AREA:="ALGEBRA_I"]
-Arizona_Data_LONG_2018[AssessmentSubtestTitle=="Geometry", CONTENT_AREA:="GEOMETRY"]
-Arizona_Data_LONG_2018[AssessmentSubtestTitle=="Algebra II", CONTENT_AREA:="ALGEBRA_II"]
+Arizona_Data_LONG_2018[ETHNICITY=="", ETHNICITY:="Unknown"]
 
 ## GRADE
 
