@@ -43,18 +43,7 @@ Arizona_SGP <- updateSGP(
 			parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=8, PROJECTIONS=8, LAGGED_PROJECTIONS=8, SGP_SCALE_SCORE_TARGETS=8, SUMMARY=8, GA_PLOT=8)))
 
 
-### Save results
-
-save(Arizona_SGP, file="Data/Arizona_SGP.Rdata")
-#save(Arizona_SGP, file="I:/Accountability/Xiaoyuan/SGP2018/data/Arizona_SGP.Rdata")
-
-
 ### Merge in scale score targets to 2018 LONG file
-
-load("Data/Arizona_SGP_Data_LONG_2018.Rdata")
-
-
-### ELA LAGGED target scale scores
 
 tmp.ela <- Arizona_SGP@SGP$SGProjections$ELA.2018.LAGGED.TARGET_SCALE_SCORES[,c("ID", "SCALE_SCORE_SGP_TARGET_3_YEAR_PROJ_YEAR_1", "GRADE", "SGP_PROJECTION_GROUP")]
 tmp.ela[,VALID_CASE:="VALID_CASE"]
@@ -93,9 +82,16 @@ tmp.alg2 <- unique(tmp.alg2, by=key(tmp.alg2))
 
 tmp <- rbindlist(list(tmp.ela, tmp.math, tmp.alg1, tmp.geom, tmp.alg2))
 setkey(tmp, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID, SGP_PROJECTION_GROUP)
-setkey(Arizona_SGP_LONG_Data_2018, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID, SGP_PROJECTION_GROUP)
+setkey(Arizona_SGP@Data, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID, SGP_PROJECTION_GROUP)
 
-Arizona_SGP_LONG_Data_2018 <- tmp[Arizona_SGP_LONG_Data_2018]
+Arizona_SGP@Data <- tmp[Arizona_SGP@Data]
 
-save(Arizona_SGP_LONG_Data_2018, file="Data/Arizona_SGP_LONG_Data_2018.Rdata")
-fwrite(Arizona_SGP_LONG_Data_2018, file="Data/Arizona_SGP_LONG_Data_2018.txt", sep="|", quote=FALSE)
+
+### outputSGP
+
+outputSGP(Arizona_SGP)
+
+
+### Save results
+
+save(Arizona_SGP, file="Data/Arizona_SGP.Rdata")
