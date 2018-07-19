@@ -12,9 +12,9 @@ require(data.table)
 
 ### Load data
 
-load("Data/Arizona_SGP.Rdata")
-load("Data/Arizona_Data_LONG_2018.Rdata")
-#load("I:/Accountability/Xiaoyuan/SGP2018/data/Arizona_Data_LONG.Rdata")
+#load("Data/Arizona_SGP.Rdata")
+#load("Data/Arizona_Data_LONG_2018.Rdata")
+load("Data/Arizona_Data_LONG.Rdata")
 
 
 ### Load configurations
@@ -27,9 +27,11 @@ AZ_CONFIG <- c(ELA_2018.config, MATHEMATICS_2018.config, ALGEBRA_I_2018.config, 
 
 ### updateSGP
 
-Arizona_SGP <- updateSGP(
- 			Arizona_SGP,
- 			Arizona_Data_LONG_2018,
+Arizona_SGP <- abcSGP(
+            Arizona_Data_LONG,
+#Arizona_SGP <- updateSGP(
+# 			Arizona_SGP,
+# 			Arizona_Data_LONG_2018,
  			steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
  			sgp.percentiles=TRUE,
  			sgp.projections=TRUE,
