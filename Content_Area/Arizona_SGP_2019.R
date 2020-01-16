@@ -26,7 +26,7 @@ AZ_CONFIG <- c(ELA_2019.config, MATHEMATICS_2019.config, ALGEBRA_I_2019.config, 
 ### updateSGP
 
 Arizona_SGP <- abcSGP(
-        Arizona_Data_LONG,
+    Arizona_Data_LONG,
  	steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
  	sgp.percentiles=TRUE,
  	sgp.projections=TRUE,
