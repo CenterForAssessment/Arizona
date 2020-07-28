@@ -27,6 +27,7 @@ AZ_CONFIG <- c(ELA_2019.config, MATHEMATICS_2019.config, ALGEBRA_I_2019.config, 
 
 Arizona_SGP <- abcSGP(
     Arizona_Data_LONG,
+        Arizona_Data_LONG_2019_ALL_YEARS,
  	steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
  	sgp.percentiles=TRUE,
  	sgp.projections=TRUE,
@@ -37,7 +38,7 @@ Arizona_SGP <- abcSGP(
  	simulate.sgps=FALSE,
  	sgp.config=AZ_CONFIG,
  	sgp.target.scale.scores=TRUE,
-	parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=8, PROJECTIONS=8, LAGGED_PROJECTIONS=8, SGP_SCALE_SCORE_TARGETS=8, SUMMARY=8, GA_PLOT=8)))
+	parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=8, PROJECTIONS=8, LAGGED_PROJECTIONS=8, SGP_SCALE_SCORE_TARGETS=8, SUMMARY=4, GA_PLOT=4)))
 
 
 ### Save results
