@@ -9,7 +9,12 @@ require(SGP)
 require(SGPmatrices)
 
 ###   Load data and remove years that will not be used.
-load("Data/Base_Files/Arizona_SGP_LONG_Data_for_2019_BASELINE_MATRICES.Rdata")
+load("Data/Base_Files/Arizona_SGP_LONG_Data.Rdata")
+
+### Test for BASELINE related variable in LONG data and NULL out if they exist
+if (length(tmp.names <- grep("BASELINE|SS", names(Arizona_SGP_LONG_Data))) > 0) {
+		Arizona_SGP_LONG_Data[,eval(tmp.names):=NULL]
+}
 
 ###   Add single-cohort baseline matrices to SGPstateData
 SGPstateData <- addBaselineMatrices("AZ", "2021")
