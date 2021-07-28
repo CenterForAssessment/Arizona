@@ -9,7 +9,7 @@ require(SGP)
 require(SGPmatrices)
 
 ###   Load data
-load("Data/Arizona_SGP.Rdata"))
+load("Data/Arizona_SGP.Rdata")
 load("Data/Arizona_Data_LONG_2021.Rdata")
 
 ###   Add Baseline matrices to SGPstateData
