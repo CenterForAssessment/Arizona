@@ -1,6 +1,7 @@
 ################################################################################
 ###                                                                          ###
 ###                Arizona COVID Skip-year SGP analyses for 2021             ###
+###                using LONG data file provided by Xiaoyuan                 ###
 ###                                                                          ###
 ################################################################################
 
@@ -9,8 +10,7 @@ require(SGP)
 require(SGPmatrices)
 
 ###   Load data
-load("Data/Arizona_SGP.Rdata")
-load("Data/Arizona_Data_LONG_2021.Rdata")
+load("Data/Arizona_Data_LONG.Rdata")
 
 ###   Add Baseline matrices to SGPstateData
 SGPstateData <- addBaselineMatrices("AZ", "2021")
@@ -31,9 +31,8 @@ parallel.config <- list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE
 ###   Run updateSGP analysis and create cohort referenced SGPs
 #####
 
-Arizona_SGP <- updateSGP(
-        what_sgp_object = Arizona_SGP,
-        with_sgp_data_LONG = Arizona_Data_LONG_2021,
+Arizona_SGP <- abcSGP(
+        sgp_object = Arizona_Data_LONG,
         steps = c("prepareSGP", "analyzeSGP", "combineSGP"),
         sgp.config = AZ_CONFIG,
         sgp.percentiles = TRUE,
@@ -53,7 +52,7 @@ Arizona_SGP <- updateSGP(
 
 Arizona_SGP <- abcSGP(
         sgp_object = Arizona_SGP,
-        steps = c("prepareSGP", "analyzeSGP", "combineSGP"),
+        steps = c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
         sgp.config = AZ_CONFIG_BASELINE,
         sgp.percentiles = FALSE,
         sgp.projections = FALSE,
