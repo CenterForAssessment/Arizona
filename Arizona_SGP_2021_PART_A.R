@@ -43,5 +43,9 @@ Arizona_COVID_SGP <- updateSGP(
         parallel.config = parallel.config
 )
 
+### Copy SCALE_SCORE_PRIOR and SCALE_SCORE_PRIOR_STANDARDIZED to BASELINE counter parts
+Arizona_SGP@Data[YEAR:="2021", SCALE_SCORE_PRIOR_BASELINE:=SCALE_SCORE_PRIOR]
+Arizona_SGP@Data[YEAR:="2021", SCALE_SCORE_PRIOR_STANDARDIZED_BASELINE:=SCALE_SCORE_PRIOR_STANDARDIZED]
+
 ###   Save results
 save(Arizona_SGP, file="Arizona_SGP.Rdata"))
