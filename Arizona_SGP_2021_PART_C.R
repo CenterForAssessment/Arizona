@@ -84,10 +84,9 @@ Arizona_SGP <- abcSGP(
         sgp.projections.baseline=FALSE,
         sgp.projections.lagged.baseline=TRUE,
         sgp.target.scale.scores=TRUE,
-        outputSGP.directory=output.directory,
         parallel.config=parallel.config
 )
 
 
 ###  Save results
-save(Arizona_SGP, "Data/Arizona_SGP.Rdata"))
+save(Arizona_SGP, "Data/Arizona_SGP.Rdata")
