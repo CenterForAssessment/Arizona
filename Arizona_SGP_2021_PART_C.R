@@ -89,4 +89,4 @@ Arizona_SGP <- abcSGP(
 
 
 ###  Save results
-save(Arizona_SGP, "Data/Arizona_SGP.Rdata")
+save(Arizona_SGP, file="Data/Arizona_SGP.Rdata")
