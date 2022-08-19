@@ -51,14 +51,15 @@ Arizona_SGP <- updateSGP(
 
 Arizona_SGP <- abcSGP(
         sgp_object = Arizona_SGP,
+	years="2022",
         steps = c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
         sgp.config = AZ_CONFIG_BASELINE,
         sgp.percentiles = FALSE,
         sgp.projections = FALSE,
         sgp.projections.lagged = FALSE,
         sgp.percentiles.baseline = TRUE,
-        sgp.projections.baseline = TRUE,
-        sgp.projections.lagged.baseline = TRUE,
+        sgp.projections.baseline = FALSE,
+        sgp.projections.lagged.baseline = FALSE,
         save.intermediate.results = FALSE,
         parallel.config = parallel.config
 )
