@@ -12,7 +12,8 @@ require(data.table)
 ### Load data
 #load("Data/Base_Files/Arizona_Data_LONG_081022.Rdata")
 #load("Data/Base_Files/Arizona_Data_LONG_081622.Rdata")
-load("Data/Base_Files/Arizona_Data_LONG_081922.Rdata")
+#load("Data/Base_Files/Arizona_Data_LONG_081922.Rdata")
+load("Data/Base_Files/Arizona_Data_LONG_082622.Rdata")
 Arizona_Data_LONG_2022 <- Arizona_Data_LONG
 
 ### Minor tidying up
