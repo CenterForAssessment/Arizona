@@ -1,98 +1,46 @@
-##############################################################
+####################################################################
 ###
-### Script for creating Arizona_Data_LONG
+### Data prep of 2023 data
 ###
-##############################################################
+####################################################################
 
-### Load SGP and data.table
-
-require(SGP)
+### Load packages
 require(data.table)
 
-
 ### Load data
+Arizona_Data_LONG <- fread("Data/Base_Files/Arizona_Data_LONG_060523.csv")
+load("Data/Archive/Pre_2023/Arizona_SGP.Rdata")
 
-Arizona_Data_LONG_1516 <- fread("Data/Base_Files/ArizonaData1516.txt", colClasses=rep("character", 12))
-Arizona_Data_LONG_1314 <- fread("Data/Base_Files/ArizonaData1314.txt", colClasses=rep("character", 10))
-
-
-##########################################################
-### Clean up 2013, 2014, 2015, and 2016 data
-##########################################################
-
-## CONTENT_AREA
-
-Arizona_Data_LONG_1516[CONTENT_AREA=="English Language Arts",CONTENT_AREA:="ELA"]
-Arizona_Data_LONG_1516[CONTENT_AREA=="Mathematics",CONTENT_AREA:="MATHEMATICS"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Algebra I", CONTENT_AREA:="ALGEBRA_I"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Geometry", CONTENT_AREA:="GEOMETRY"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Algebra II", CONTENT_AREA:="ALGEBRA_II"]
-
-## GRADE
-
-setnames(Arizona_Data_LONG_1516, "GRADE", "GRADE_ENROLLED")
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 3", GRADE:="3"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 4", GRADE:="4"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 5", GRADE:="5"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 6", GRADE:="6"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 7", GRADE:="7"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 8", GRADE:="8"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 9", GRADE:="9"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 10", GRADE:="10"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="ELA Grade 11", GRADE:="11"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Mathematics Grade 3", GRADE:="3"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Mathematics Grade 4", GRADE:="4"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Mathematics Grade 5", GRADE:="5"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Mathematics Grade 6", GRADE:="6"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Mathematics Grade 7", GRADE:="7"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle=="Mathematics Grade 8", GRADE:="8"]
-Arizona_Data_LONG_1516[AssessmentSubtestTitle %in% c("Algebra I", "Algebra II", "Geometry"), GRADE:="EOCT"]
-
-
-## SCALE_SCORE
-
-Arizona_Data_LONG_1314[,SCALE_SCORE:=as.numeric(SCALE_SCORE)]
-Arizona_Data_LONG_1314[SCALE_SCORE==0, SCALE_SCORE:=NA]
-Arizona_Data_LONG_1516[,SCALE_SCORE:=as.numeric(SCALE_SCORE)]
-
-
-## ACHIEVEMENT_LEVEL
-
-Arizona_Data_LONG_1314[ACHIEVEMENT_LEVEL=="", ACHIEVEMENT_LEVEL:=as.character(NA)]
-
-## ENROLLMENT_STATUS
-
-Arizona_Data_LONG_1314[,STATE_ENROLLMENT_STATUS:=factor(1, levels=0:1, labels=c("Enrolled State: No", "Enrolled State: Yes"))]
-Arizona_Data_LONG_1516[,STATE_ENROLLMENT_STATUS:=factor(1, levels=0:1, labels=c("Enrolled State: No", "Enrolled State: Yes"))]
-Arizona_Data_LONG_1314[,DISTRICT_ENROLLMENT_STATUS:=as.factor(DISTRICT_ENROLLMENT_STATUS)]
-Arizona_Data_LONG_1516[,DISTRICT_ENROLLMENT_STATUS:=as.factor(DISTRICT_ENROLLMENT_STATUS)]
-setattr(Arizona_Data_LONG_1314[['DISTRICT_ENROLLMENT_STATUS']], "levels", c("Enrolled District: No", "Enrolled District: Yes"))
-setattr(Arizona_Data_LONG_1516[['DISTRICT_ENROLLMENT_STATUS']], "levels", c("Enrolled District: No", "Enrolled District: Yes"))
-Arizona_Data_LONG_1314[,SCHOOL_ENROLLMENT_STATUS:=as.factor(SCHOOL_ENROLLMENT_STATUS)]
-setattr(Arizona_Data_LONG_1314[['SCHOOL_ENROLLMENT_STATUS']], "levels", c("Enrolled School: No", "Enrolled School: Yes"))
-Arizona_Data_LONG_1516[,SCHOOL_ENROLLMENT_STATUS:=as.factor(SCHOOL_ENROLLMENT_STATUS)]
-setattr(Arizona_Data_LONG_1516[['SCHOOL_ENROLLMENT_STATUS']], "levels", c("Enrolled School: No", "Enrolled School: Yes"))
-
-
-## rbind data
-
-Arizona_Data_LONG <- rbindlist(list(Arizona_Data_LONG_1314, Arizona_Data_LONG_1516), fill=TRUE)
-
-
-## VALID_CASE
-
+### Tidy up Arizona_Data_LONG
+Arizona_Data_LONG[,ID:=as.character(ID)]
+Arizona_Data_LONG[,YEAR:=as.character(YEAR)]
+Arizona_Data_LONG[,ACHIEVEMENT_LEVEL:=as.factor(ACHIEVEMENT_LEVEL)]
+setattr(Arizona_Data_LONG$ACHIEVEMENT_LEVEL, "levels", c("Minimally Proficient", "Partially Proficient", "Proficient", "Highly Proficient"))
+Arizona_Data_LONG[,ACHIEVEMENT_LEVEL:=as.character(ACHIEVEMENT_LEVEL)]
+Arizona_Data_LONG[,GRADE_ENROLLED:=as.character(GRADE_ENROLLED)]
+Arizona_Data_LONG[,GRADE:=GRADE_ENROLLED]
+Arizona_Data_LONG[,SCHOOL_ENROLLMENT_STATUS:=as.factor(SCHOOL_ENROLLMENT_STATUS)]
+setattr(Arizona_Data_LONG$SCHOOL_ENROLLMENT_STATUS, "levels", c("Enrolled School: No", "Enrolled School: Yes"))
+Arizona_Data_LONG[,DISTRICT_ENROLLMENT_STATUS:=as.factor(DISTRICT_ENROLLMENT_STATUS)]
+setattr(Arizona_Data_LONG$DISTRICT_ENROLLMENT_STATUS, "levels", c("Enrolled District: No", "Enrolled District: Yes"))
 Arizona_Data_LONG[,VALID_CASE:="VALID_CASE"]
+Arizona_Data_LONG[CONTENT_AREA=="MATH", CONTENT_AREA:="MATHEMATICS"]
+setcolorder(Arizona_Data_LONG, c(23, 7, 2, 22, 1, 10, 8, 3:6, 11:12, 15:19, 20, 21, 9, 13:14))
+setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID)
 
+### Create 2023 Data set
+Arizona_Data_LONG_2023 <- Arizona_Data_LONG[YEAR=="2023"]
+save(Arizona_Data_LONG_2023, file="Data/Arizona_Data_LONG_2023.Rdata")
 
-### Resolve duplicates
-
-setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID, GRADE, SCALE_SCORE)
-setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID, GRADE)
-Arizona_Data_LONG[which(duplicated(Arizona_Data_LONG, by=key(Arizona_Data_LONG)))-1, VALID_CASE:="INVALID_CASE"]
-Arizona_Data_LONG[is.na(SCALE_SCORE), VALID_CASE:="INVALID_CASE"]
-setkey(Arizona_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, ID, GRADE)
-
+### Create new SGP object
+tmp.data <- Arizona_SGP@Data[YEAR >= "2021"]
+Arizona_Data_LONG_2021_and_2022 <- Arizona_Data_LONG[YEAR < "2023"]
+variables.to.keep <- c("VALID_CASE", "CONTENT_AREA", "YEAR", "GRADE", "ID", setdiff(names(tmp.data), names(Arizona_Data_LONG_2021_and_2022)))
+tmp.data.for.sgp.object <- tmp.data[,variables.to.keep, with=FALSE][Arizona_Data_LONG_2021_and_2022]
+setcolorder(tmp.data.for.sgp.object, c(1:5, 60:72, 10, 13:14, 8:9, 7, 11:12, 15:59, 73:77, 6))
+Arizona_SGP@Data <- rbindlist(list(tmp.data.for.sgp.object, Arizona_SGP@Data[YEAR <= "2019"]), use.names=TRUE)
+Arizona_SGP <- SGP::prepareSGP(Arizona_SGP)
 
 ### Save results
-
-save(Arizona_Data_LONG, file="Data/Arizona_Data_LONG.Rdata")
+save(Arizona_SGP, file="Data/Arizona_SGP.Rdata")
+save(Arizona_Data_LONG_2023, file="Data/Arizona_Data_LONG_2023.Rdata")

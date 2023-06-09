@@ -45,7 +45,7 @@ parallel.config <- list(BACKEND="PARALLEL", WORKERS=list(TAUS=48))
 Arizona_SGP <- updateSGP(
         what_sgp_object = Arizona_SGP,
         with_sgp_data_LONG = Arizona_Data_LONG_2022,
-        steps = c("prepareSGP", "analyzeSGP", "combineSGP"),
+        steps = c("prepareSGP", "analyzeSGP"),
         sgp.config = AZ_CONFIG,
         sgp.percentiles = TRUE,
         sgp.projections = FALSE,
@@ -65,6 +65,9 @@ Arizona_SGP <- updateSGP(
 ### Load final data
 load("Data/Base_Files/Arizona_Data_LONG_2022.Rdata")
 
+### Get rid of 2022 data in @Data
+Arizona_SGP@Data <- Arizona_SGP@Data[YEAR < "2022"]
+
 Arizona_SGP <- updateSGP(
         what_sgp_object = Arizona_SGP,
         with_sgp_data_LONG = Arizona_Data_LONG_2022,
@@ -78,6 +81,7 @@ Arizona_SGP <- updateSGP(
         sgp.projections.lagged.baseline = FALSE,
         save.intermediate.results = FALSE,
         sgp.use.my.coefficient.matrices = TRUE,
+        overwrite.existing.data = FALSE,
         parallel.config = parallel.config
 )
 
