@@ -39,6 +39,7 @@ Arizona_SGP <- updateSGP(
         sgp.percentiles.baseline = TRUE,
         sgp.projections.baseline = TRUE,
         sgp.projections.lagged.baseline = TRUE,
+	sgp.use.my.coefficient.matrices=TRUE,
         save.intermediate.results = FALSE,
         parallel.config = parallel.config
 )
