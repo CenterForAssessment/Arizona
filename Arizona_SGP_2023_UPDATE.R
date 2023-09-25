@@ -10,7 +10,7 @@ require(SGPmatrices)
 
 ### Load SGP object data
 load("Data/Arizona_SGP.Rdata")
-load("Data/Arizona_Data_LONG_2023_UPDATE.Rdata")
+load("Data/Arizona_Data_LONG_2023.Rdata")
 
 ###   Add Baseline matrices to SGPstateData
 SGPstateData <- addBaselineMatrices("AZ", "2023")
@@ -30,7 +30,7 @@ parallel.config <- list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE
 
 Arizona_SGP <- updateSGP(
         what_sgp_object = Arizona_SGP,
-        with_sgp_data_LONG = Arizona_Data_LONG_2023_UPDATE,
+        with_sgp_data_LONG = Arizona_Data_LONG_2023,
         steps = c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
         sgp.config = AZ_CONFIG,
         sgp.percentiles = TRUE,
