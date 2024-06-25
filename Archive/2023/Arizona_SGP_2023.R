@@ -22,7 +22,7 @@ source("SGP_CONFIG/2023/MATHEMATICS.R")
 AZ_CONFIG <- c(ELA_2023.config, MATHEMATICS_2023.config)
 
 ### Parameters
-parallel.config <- list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE_PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SGP_SCALE_SCORE_TARGETS=4))
+#parallel.config <- list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE_PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SGP_SCALE_SCORE_TARGETS=4))
 
 #####
 ###   Run cohort- and baseline-referenced updateSGP analysis
@@ -39,9 +39,9 @@ Arizona_SGP <- updateSGP(
         sgp.percentiles.baseline = TRUE,
         sgp.projections.baseline = TRUE,
         sgp.projections.lagged.baseline = TRUE,
+        sgp.target.scale.scores=TRUE,
         save.intermediate.results = FALSE,
-        parallel.config = parallel.config
-)
+        parallel.config = parallel.config)
 
 ###   Save results
 save(Arizona_SGP, file="Data/Arizona_SGP.Rdata")
