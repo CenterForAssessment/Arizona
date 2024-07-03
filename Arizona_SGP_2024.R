@@ -49,6 +49,17 @@ Arizona_SGP <- abcSGP(
 ###   Run baseline-referenced abcSGP analysis
 #####
 
+SGPstateData[["AZ"]][["SGP_Configuration"]][["grade.projection.sequence"]] <- list(
+	ELA=c("3", "4", "5", "6", "7", "8"),
+	MATHEMATICS=c("3", "4", "5", "6", "7", "8"))
+SGPstateData[["AZ"]][["SGP_Configuration"]][["content_area.projection.sequence"]] <- list(
+	ELA=rep("ELA", 6),
+	MATHEMATICS=rep("MATHEMATICS", 6))
+SGPstateData[["AZ"]][["SGP_Configuration"]][["year_lags.projection.sequence"]] <- list(
+	ELA=rep(1L, 5),
+	MATHEMATICS=rep(1L, 5))
+
+
 Arizona_SGP <- abcSGP(
         sgp_object = Arizona_SGP,
         steps = c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
