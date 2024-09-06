@@ -8,7 +8,8 @@
 require(data.table)
 
 ### Load data
-Arizona_Data_LONG <- fread("Data/Base_Files/Arizona_Data_LONG_061824.csv")
+#Arizona_Data_LONG <- fread("Data/Base_Files/Arizona_Data_LONG_061824.csv")
+Arizona_Data_LONG <- fread("Data/Base_Files/Arizona_Data_LONG_082024.csv")
 load("Data/Arizona_SGP.Rdata")
 
 ### Tidy up Arizona_Data_LONG
