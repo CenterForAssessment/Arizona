@@ -8,8 +8,8 @@
 require(data.table)
 
 ### Load data
-#Arizona_Data_LONG_2025 <- fread("Data/Base_Files/Arizona_Data_LONG_2025_XXXX25.csv")
-#Arizona_Data_LONG_2025 <- fread("Data/Base_Files/Arizona_Data_LONG_2025_XXXX25.csv")
+Arizona_Data_LONG_2025 <- fread("Data/Base_Files/Arizona_Data_LONG_061325.csv")
+#Arizona_Data_LONG_2025 <- fread("Data/Base_Files/Arizona_Data_LONG_XXXX25.csv")
 
 ### Tidy up Arizona_Data_LONG_2025
 Arizona_Data_LONG_2025[,ID:=as.character(ID)]
