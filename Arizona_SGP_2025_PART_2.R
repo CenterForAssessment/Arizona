@@ -11,7 +11,7 @@ require(SGPmatrices)
 
 ### Load SGP object data
 load("Data/Arizona_SGP.Rdata")
-load("Data/Arizona_Data_LONG_2025.Rdata")
+load("Data/Arizona_Data_LONG_2025.Rdata") ### Need to provide updated data
 
 ###   Add Baseline matrices to SGPstateData
 SGPstateData <- addBaselineMatrices("AZ", "2025")
